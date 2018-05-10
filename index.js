@@ -7,14 +7,14 @@ class Driver {
     this.id = ++driverId;
 
     store.drivers.push(this);
+  }
 
-    this.trips = function () {
-      return store.trips.filter(trip => trip.driverId === this.id);
-    }
+  trips() {
+    return store.trips.filter(trip => trip.driverId === this.id);
+  }
 
-    this.passengers = function () {
-      return this.trips().map(trip => trip.passenger());
-    }
+  passengers() {
+    return this.trips().map(trip => trip.passenger());
   }
 }
 
@@ -24,14 +24,14 @@ class Passenger {
     this.id = ++passengerId;
 
     store.passengers.push(this);
+  }
 
-    this.trips = function () {
-      return store.trips.filter(trip => trip.passengerId === this.id);
-    }
+  trips() {
+    return store.trips.filter(trip => trip.passengerId === this.id);
+  }
 
-    this.drivers = function() {
-      return this.trips().map(trip => trip.driver());
-    }
+  drivers() {
+    return this.trips().map(trip => trip.driver());
   }
 }
 
